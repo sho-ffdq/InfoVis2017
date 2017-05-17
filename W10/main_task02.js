@@ -22,28 +22,26 @@ function main()
     document.body.appendChild( renderer.domElement );
     
     var vertices = [
-                    [ -1,  1, 0 ], // 0
-                    [ -1, -1, 0 ], // 1
-                    [  1, -1, 0 ]  // 2
-                    ];
+        [ -1,  1, 0 ], // 0
+        [ -1, -1, 0 ], // 1
+        [  1, -1, 0 ]  // 2
+    ];
     
     var faces = [
-                 [ 0, 1, 2 ], // f0
-                 ];
+        [ 0, 1, 2 ], // f0
+    ];
     
     var scalars = [
-                   0.1,   // S0
-                   0.2, // S1
-                   0.8  // S2
-                   ];
+        0.1, // S0
+        0.2, // S1
+        0.8  // S2
+    ];
     
     // Create color map
     var cmap = [];
-    
     for ( var i = 0; i < 256; i++ )
     {
         var S = i / 255.0; // [0,1]
-        //var R = Math.max( Math.cos( ( S - 1.0 ) * Math.PI ), 0.0 );
         var R = 1.0;
         var G = Math.max( Math.cos( ( S ) * Math.PI ), 0.0 );
         var B = Math.max( Math.cos( ( S ) * Math.PI ), 0.0 );
@@ -56,10 +54,10 @@ function main()
     lut.addColorMap( 'mycolormap', cmap );
     lut.changeColorMap( 'mycolormap' );
     scene.add( lut.setLegendOn( {
-                               'layout':'horizontal',
-                               'position': { 'x': 0.6, 'y': -1.1, 'z': 2 },
-                               'dimensions': { 'width': 0.15, 'height': 1.2 }
-                               } ) );
+        'layout':'horizontal',
+        'position': { 'x': 0.6, 'y': -1.1, 'z': 2 },
+        'dimensions': { 'width': 0.15, 'height': 1.2 }
+    } ) );
     
     var geometry = new THREE.Geometry();
     var material = new THREE.MeshBasicMaterial();
